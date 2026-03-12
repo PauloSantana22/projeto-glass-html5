@@ -1,47 +1,111 @@
-Google Glass
-A revolução do Google está chegando
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Glass</title>
+    <link rel="stylesheet" href="_css/estilo.css">
+    <link rel="stylesheet" href="_css/form.css">
+</head>
+<script language="javascript" src="_javascript/funcoes.js"></script>
+<script>
+    function calc_to() {
+        var qtd = parseInt(document.getElementById('iQtd'). value) 
+        tot = qtd * 250;
+        document.getElementById('iTot').value = tot;
+    }
+</script>
+<body>
+    <div id="interface">
+        <header id="cabecalho">
+            <hgroup>
+                <h1> Google </h1>
+                <h2>A revolução do Google está a chegar</h2>
+            </hgroup>
+            <img id="icone" src="_imagens/glass-oculos-preto-peq.png" alt="">
+            <nav id="menu">
+                <h1>Menu Principal</h1>
+                <ul>
+                    <li onmouseover="mudafoto('_imagens/home.png')" onmouseout="mudafoto('_imagens/contato.png')"> <a href="index.html">Home</a></li>
+                    <li onmouseover="mudafoto('_imagens/especificacoes.png')" onmouseout="mudafoto('_imagens/contato.png')"> <a href="specs.html
+                    ">Especificações</a></li>
+                    <li onmouseover="mudafoto('_imagens/fotos.png')" onmouseout="mudafoto('_imagens/contato.png')"> <a href="fotos.html">Fotos</a></li>
+                    <li onmouseover="mudafoto('_imagens/multimidia.png')" onmouseout="mudafoto('_imagens/contato.png')"> <a href="multimidia.html">Multimédia</a></li>
+                    <li onmouseover="mudafoto('_imagens/contato.png')" onmouseout="mudafoto('_imagens/contato.png')"> <a href="fale-conosco.html">Fale conosco</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id="corpo-full">
+            <article id="noticia_principal">
+                <header id="cabecalho-artigo">
+                    <hgroup>
+                        <h3>Fale connosco > Contato</h3>
+                        <h1>Saiba tudo sobre o Google Glass</h1>
+                        <h2>por Paulo</h2>
+                        <h3 class="direito" >Atualizado em 11/fevereiro/2026</h3>
+                    </hgroup>
+                </header>
+                <form method="post" id="fContato" action="mailto:PauloDOgas300@gmail.com" onabort="calc_total(); ">
+                    <fieldset id="utilizador">
+                        <legend>Identificação do Utilizador</legend>
+                        <p><label for="inome">Nome:</label><input type="text" name="tNome" id="inome" size="20" maxlength="30" placeholder="Nome completo"></p>
+                        <p><label for="isenha">Senha:</label><input type="password" name="tsenha" id="inome" size="8" maxlength="8" placeholder="8 digitos"></p>
+                        <p><label for="iEmail">E-mail:</label><input type="email" name="tEmail" id="iEmail" size="20" maxlength="40"></p>
+                        <fieldset id="isexo">
+                            <legend>Sexo</legend>
+                            <input type="radio" name="tsexo" id="iMasc" checked/><label for="iMasc">Mascolino</label>
+                            <input type="radio" name="tsexo" id="iFem"/><label for="iFem">Feminino</label>
+                        </fieldset>
+                        <p>Data de Nascimento: <input type="date" name="tData" id="iData"></p>
+                    </fieldset>
+                    <fieldset id="iEndereco">
+                        <legend>Endereço do Utilizado</legend>
+                            <p><label for="iRua">Morada: </label> <input type="text" name="tRua" id="iRua" size="13" maxlength="80" placeholder="Rua, Av, Trav,..."></p>
+                            <p><label for="iNum">Número: </label><input type="number" name="tNum" id="inum"min="0" max="9999"></p>
+                            <p><label for="iDist">Distrito: </label>
+                            <select name="tDist" id="iDist">
+                                <optgroup>
+                                    <option value="Avr">Aveiro</option>
+                                    <option value="Grd">Guarda</option>
+                                    <option value="Cbr">Coimbra</option>
+                                    <option value="CB">Castelo Branco</option>
+                                    <option value="Lra">Leiria</option>
+                                </optgroup>
+                                <optgroup label="Região De lisboa e vale do teijo">
+                                    <option value="Lba">Lisboa</option>
+                                    <option value="Str" selected>Santarém</option>
+                                    <option value="Scb">Setúbal</option>
+                                </optgroup>
+                            </select></p>
+                                <p><label for="iCid">Cidade:</label> <input type="text" name="tCid" id="iCid" maxlength="40" size="20" placeholder="Nome da tua cidade" ></p>
+                                <datalist id="cidades">
+                                    <option value="Ailmeirim"></option>
+                                    <option value="Fazendas de Almeirim"></option>
+                                    <option value="Benfica do Ribatejo"></option>
+                                    <option value="Raposa"></option>
+                                    <option value="Alpiarça"></option>
+                                </datalist>
+                    </fieldset>
+                    <fieldset id="iMensagem">
+                        <legend>Mensagem do Utilizador</legend>
+                        <p><label for="iUrg"> Graul de Urgência</label> Mín. <input type="range" name="tUrg" id="iUrg" min="0" max="10" step="2">Máx.</p>
+                        <p><label for="iMsg">Mensagem</label><textarea name="tMsg" id="iMsg" cols="40" rows="5" placeholder="Escreva a sua mensagem"></textarea></p>
+                    </fieldset>
+                    <fieldset id="iPedido">
+                        <legend>Quero um Google Glass</legend>
+                        <p><input type="checkbox" name="tPed" id="iPad" checked><label for="iPad">Gostaria de adiquirir um Google Glass quando disponível</label></p> 
+                        <p></p><label for="iCor">Cor:</label><input type="number" name="tQtd" id="iQtd" min="0" max="5" value="0"></p> 
+                        <p></p><label for="iTot">Preço Total:€</label><input type="text" name="tTot" id="iTot" placeholder="Total a Pagar"></p> 
+                    </fieldset>   
+                    <input type="image" name="tEnviar" src="_imagens/botao-enviar.png"> 
+                </form>
+            </article>
 
-[AQUI ENTRA UMA FOTO]
-
-Menu Principal
-- Home
-- Especificações
-- Fotos
-- Multimídia
-- Fale conosco
-
-Fale Conosco > Contato
-Formulário de Contato
-por Gustavo Guanabara
-Atualizado em 01/Maio/2013
-
-Identificação do Usuário
-    Nome:
-    Senha:
-    E-mail:
-    Sexo:
-        - Masculino
-        - Feminino
-    Data de Nascimento:
-
-Endereço do Usuário
-    Logradouro:
-    Número:
-    Estado:
-    Cidade:
-
-Mensagem do Usuário
-    Grau de Urgência:
-    Mensagem:
-
-Quero um Google Glass
-    Gostaria de adquirir um Google Glass quando disponível
-    Cor:
-    Quantidade:
-    Preço Total: R$
-
-
-[BOTÃO ENVIAR]
-
-Copyright 2013 - by Gustavo Guanabara
-Facebook | Twitter
+<footer id="rodape">
+            <p>Copyright &copy;2026 - by Paulo <br>
+            <a href="https://facebook.com">Facebook</a> | <a href="https://x.com">X</a></p>
+            
+        </footer>
+    </div>
+</body>
+</html
